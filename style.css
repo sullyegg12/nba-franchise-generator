@@ -1,0 +1,202 @@
+:root {
+    --bg-color: #121214;
+    --card-bg: #1e1e24;
+    --primary-color: #ff6b35;
+    --secondary-color: #004baf;
+    --text-color: #ffffff;
+    --text-muted: #a0a0a5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+nav button.active, nav button:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Container Pages */
+.container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* Controls */
+.btn-action {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    margin-bottom: 30px;
+}
+
+.btn-action:hover {
+    background-color: #e55a2b;
+    transform: scale(1.05);
+}
+
+.btn-action:disabled {
+    background-color: #555;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Lineup Board */
+.lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.position-card {
+    background-color: var(--card-bg);
+    border: 2px dashed #444;
+    border-radius: 10px;
+    padding: 20px 10px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.position-card.filled {
+    border: 2px solid var(--secondary-color);
+    background: linear-gradient(145deg, #1e1e24, #141418);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pos-tag {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.player-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.player-era {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Results Display */
+.results-box {
+    background-color: #1a2536;
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.results-box h2 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.record-stat {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #4cd137;
+    margin-bottom: 10px;
+}
+
+.playoff-stat {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fbc531;
+}
+
+/* Profile Style */
+.profile-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.best-record-label {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}

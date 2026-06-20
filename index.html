@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Ultimate Team Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121214">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+<nav>
+    <button id="nav-home" class="active" onclick="switchPage('home')">Home</button>
+    <button id="nav-profile" onclick="switchPage('profile')">Profile</button>
+</nav>
+
+<div class="container">
+
+    <div id="page-home" class="page active">
+        <h1>NBA Franchise Generator</h1>
+        <p class="subtitle">Draft a historical lineup across all 5 positions and simulate your season!</p>
+
+        <button id="btn-roll" class="btn-action" onclick="rollPlayer()">Draft Next Position</button>
+
+        <div class="lineup-grid">
+            <div class="position-card" id="card-PG"><div class="pos-tag">PG</div><div class="player-name">-</div></div>
+            <div class="position-card" id="card-SG"><div class="pos-tag">SG</div><div class="player-name">-</div></div>
+            <div class="position-card" id="card-SF"><div class="pos-tag">SF</div><div class="player-name">-</div></div>
+            <div class="position-card" id="card-PF"><div class="pos-tag">PF</div><div class="player-name">-</div></div>
+            <div class="position-card" id="card-C"><div class="pos-tag">C</div><div class="player-name">-</div></div>
+        </div>
+
+        <div id="results" class="results-box">
+            <h2>Season Simulation Complete!</h2>
+            <div class="record-stat" id="res-record">0-0</div>
+            <div class="playoff-stat" id="res-playoffs">Loading Outcome...</div>
+        </div>
+    </div>
+
+    <div id="page-profile" class="page">
+        <h1>Manager Profile</h1>
+        <p class="subtitle">Your historical tracking dashboard</p>
+
+        <div class="profile-card">
+            <div class="best-record-label">All-Time Best Finish</div>
+            <div class="record-stat" id="best-record">No games simulated yet</div>
+            <div class="playoff-stat" id="best-playoffs">Build a lineup to track your peak performance!</div>
+        </div>
+    </div>
+
+</div>
+<script>
+    // Register Service Worker for PWA compliance
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(() => console.log("Service Worker Registered"));
+    }
+</script>
+<script src="app.js"></script>
+</body>
+</html>
